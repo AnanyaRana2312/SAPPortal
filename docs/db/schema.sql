@@ -1,10 +1,14 @@
+--DROP DATABASE meowmeow;
+
 CREATE DATABASE IF NOT EXISTS meowmeow;
 
 USE meowmeow;
 
-CREATE TABLE IF NOT EXISTS students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    sap VARCHAR(9) NOT NULL,
-    contact VARCHAR(15) NOT NULL
+CREATE TABLE IF NOT EXISTS student (
+    name VARCHAR(255),
+    sap INT PRIMARY KEY,
+    contact VARCHAR(15)
 );
+--DROP TABLE student;
+--TRUNCATE TABLE student;
+

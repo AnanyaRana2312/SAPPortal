@@ -1,7 +1,6 @@
 package com.ananya.sportal.model;
 
 public class Student {
-    private int id;
     private String name;
     private String sap;
     private String contact;
@@ -13,9 +12,6 @@ public class Student {
         this.sap = sap;
         this.contact = contact;
     }
-
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }

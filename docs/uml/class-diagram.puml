@@ -1,33 +1,42 @@
 @startuml
-class Student {
-  - int id
-  - String name
-  - String sap
-  - String contact
-  + getId()
-  + setId(int id)
-  + getName()
-  + setName(String name)
-  + getSap()
-  + setSap(String sap)
-  + getContact()
-  + setContact(String contact)
+package com.ananya.sportal.model {
+    class Student {
+        - name: String
+        - sap: String
+        - contact: String
+        + Student()
+        + Student(name: String, sap: String, contact: String)
+        + getName(): String
+        + setName(name: String): void
+        + getSap(): String
+        + setSap(sap: String): void
+        + getContact(): String
+        + setContact(contact: String): void
+    }
 }
 
-class DatabaseConnection {
-  + static Connection getConnection()
+package com.ananya.sportal.db {
+    class DatabaseConnection {
+        {static} - URL: String
+        {static} - USER: String
+        {static} - PASSWORD: String
+        {static} + getConnection(): Connection
+    }
 }
 
-class MainPanel {
-  - JTextField nameField
-  - JTextField sapField
-  - JTextField contactField
-  - JButton saveButton
-  + MainPanel()
-  - saveStudent()
+package com.ananya.sportal.gui {
+    class MainPanel {
+        - nameField: JTextField
+        - sapField: JTextField
+        - contactField: JTextField
+        - saveButton: JButton
+        + MainPanel()
+        - saveStudent(): void
+        - viewAllStudents(): void
+        + main(args: String[]): void
+    }
 }
 
-App -> MainPanel
-MainPanel --> DatabaseConnection
-MainPanel --> Student
+MainPanel --> Student : uses
+MainPanel --> DatabaseConnection : uses
 @enduml

@@ -53,6 +53,12 @@ public class MainPanel extends JFrame {
                 saveStudent();
             }
         });
+
+        JButton viewButton = new JButton("View All Students");
+        viewButton.setBounds(120, 210, 200, 30);
+        add(viewButton);
+
+        viewButton.addActionListener(e -> viewAllStudents());
     }
 
     private void saveStudent() {
@@ -62,7 +68,7 @@ public class MainPanel extends JFrame {
         Student student = new Student(name, sap, contact);
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "INSERT INTO students (name, sap, contact) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO student (name, sap, contact) VALUES (?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, student.getName());
             stmt.setString(2, student.getSap());
@@ -72,5 +78,37 @@ public class MainPanel extends JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
+    }
+
+    private void viewAllStudents() {
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            String sql = "SELECT * FROM student";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            var rs = stmt.executeQuery();
+
+            StringBuilder result = new StringBuilder();
+            while (rs.next()) {
+                result.append("Name: ").append(rs.getString("name"))
+                        .append(", SAP ID: ").append(rs.getString("sap"))
+                        .append(", Contact: ").append(rs.getString("contact"))
+                        .append("\n");
+            }
+
+            JTextArea textArea = new JTextArea(result.toString());
+            textArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            scrollPane.setPreferredSize(new java.awt.Dimension(400, 200));
+
+            JOptionPane.showMessageDialog(this, scrollPane, "All Students", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            MainPanel frame = new MainPanel();
+            frame.setVisible(true);
+        });
     }
 }

@@ -1,0 +1,7 @@
+INSERT INTO student (name, sap, contact)
+VALUES 
+('Ananya Rana', 500119565, 8527458627),
+('Pranav Akshit', 500119568, 9469142298),
+('K Dot', 500116969, 9988696969),
+('Travis Scott', 500126942, 7778889990),
+('PB Carti', 500121884, 9311683978);

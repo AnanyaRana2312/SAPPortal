@@ -1,0 +1,6 @@
+@echo off
+echo Running mvn clean compile...
+mvn clean compile
+echo Running mvn exec:java...
+mvn exec:java -Dexec.mainClass="com.ananya.sportal.gui.MainPanel"
+pause

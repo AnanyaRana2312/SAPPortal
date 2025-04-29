@@ -1,0 +1,10 @@
+@startuml ER_Diagram
+
+entity "Student" {
+  * sap : INT
+  --
+  name : VARCHAR
+  contact : VARCHAR
+}
+
+@enduml
