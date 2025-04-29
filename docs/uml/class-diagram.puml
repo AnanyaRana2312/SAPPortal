@@ -1,0 +1,33 @@
+@startuml
+class Student {
+  - int id
+  - String name
+  - String sap
+  - String contact
+  + getId()
+  + setId(int id)
+  + getName()
+  + setName(String name)
+  + getSap()
+  + setSap(String sap)
+  + getContact()
+  + setContact(String contact)
+}
+
+class DatabaseConnection {
+  + static Connection getConnection()
+}
+
+class MainPanel {
+  - JTextField nameField
+  - JTextField sapField
+  - JTextField contactField
+  - JButton saveButton
+  + MainPanel()
+  - saveStudent()
+}
+
+App -> MainPanel
+MainPanel --> DatabaseConnection
+MainPanel --> Student
+@enduml
