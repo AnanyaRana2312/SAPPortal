@@ -1,6 +1,12 @@
-# SAPPortal
+# SAPPortal 🎓
+[![Java](https://img.shields.io/badge/Java-17-blue.svg)](https://www.oracle.com/java/)  
+[![MySQL](https://img.shields.io/badge/Database-MySQL-yellow.svg)](https://www.mysql.com/)  
+[![Maven](https://img.shields.io/badge/Build-Maven-FF6F00.svg)](https://maven.apache.org/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)  
+[![IDE: IntelliJ](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-red.svg)](https://www.jetbrains.com/idea/)
 
-Simple Java Swing Application to manage students with MySQL Database.
+A **Standalone Java Application** for managing student details with a **GUI** built using **Swing** and a **MySQL database** backend.  
+Created as a part of the **OOPS Project** at UPES.
 
 ## Technologies Used
 - Java 21
